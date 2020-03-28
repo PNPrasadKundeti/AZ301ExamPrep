@@ -1,0 +1,152 @@
+AZ 301 Exam Prepration (Azure Solution Architect)
+
+Translate business requirements into secure,scalable and reliable solutions. should have experience in networking, virtualization, identity, security, business continuity, disaster recovery, data management,budgeting and governance.
+
+candidate must pro in development, devops or Administration
+
+Topics covered on the exam:
+Determine workload requirements
+Design for identity and security
+design a data platform Solution
+design a business continuity strategy
+design for deployment,migration and integration
+design an infrastructure strategy
+
+Section1: Determine workload requirements
+    Gather information and requirements
+        Identity compliance requirements  (Study Tip: Go through Azure Architecture Center: https://docs.microsoft.com/en-us/azure/architecture/ )
+            .Accessibiltiy requirements
+            .Availability requirements
+        Recommend changes during a project
+            .Evaluating projects and services to align with a Solution
+            .Creating a test scenarios
+     Reference Architecture: serverless event processing using Azure functions or serverless web application
+
+    Optimze Consumption strategy
+        Optimze app service
+        Compute
+        Network
+        Identity
+        Storage Costs
+    different optize strategy
+        cost analysis on each services--> how much we are spending
+        pricing calculator: https://azure.microsoft.com/en-us/pricing/calculator/ 
+        if you are going for migration then use the Total Cost of Ownership(TCO): https://azure.microsoft.com/en-us/pricing/tco/calculator/ (migrating from on-prem to cloud)
+
+    Design an auditing and monitoring strategy
+
+        .Define logical groupings (tags) for resources to be monitored
+        .Determine levels and storage locations for logs
+        .Plan for integration with monitoring tools
+        .Recommend appropriate monitoring tools for a Solution
+        .Specify mechanism for event routing and escalation
+        .Design auditing for compliance requirements
+        .Design auditing policies and tracability requirements
+
+Every resource in azure has the option for the tagging, using this tags we can identify or budget caculations, events, functions for automation, expiry date, apply patches
+
+Azure Sentinel(SIEM+SOAR tool): Cloud Native event management solution (collect, detect, investigate and respond)
+
+Section2: Design for Identiy and Security
+ 
+    Design identiy management
+        Choose an identiy management approach
+        Design an identity delegation strategy, identity repository (including directory, applications,systems)
+        Design self-service identiy management and user and persona provisioing
+        Defining persona and roles
+        Recommend appropriate access control and strategy 
+                Attribute-based
+                discretionary access
+                history-based
+                identity-based
+                mandatory
+                organization-based
+                role-based
+                rule-based
+                responsibility-based
+
+Privileged Identity Management (PIM) contains mostly 3 sections, PIM is a premium feature that enables you to limit standing admin and Privileged roles(Assign -->Activate --> Approve -->Adudit)
+    MyRoles
+    MyRequest: request the access for certain services
+    ApproveRequest: approve that user access request
+    ReviewAccess: prediocally review those access request
+
+    Design authentication: Design authentication workflow 
+
+    * Study different authentication methods for application running in Azure (Azure Connect, OpenID and OAuth, SAML, B2B, B2C, Passthrough authentication)
+
+    Choose an authentication approach
+    
+     Choose an authentication approach
+     Define access permission and privileges 
+     Design secure delegated access (OAuth,OpenID)
+     Recommend when and how to use API Keys
+       Tip: familiar with Role Based Access Control (RBAC), like creating a new custom role for starting and stopping a VM use the following role, custom role has the ability to define actions, not actions and AssignableScopes for different subscriptions etc.,
+    
+    Design a Single Sign-on approach
+    Design for IPSec
+    Logon
+    MFA
+    Network access
+    Remote authentication   
+-----------------------
+{
+  "Name": "Virtual Machine Operator",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
+    "/providers/Microsoft.Management/managementGroups/{groupId1}"
+  ]
+}
+----------------------------------
+
+     
+
+
+    Design authorization
+    Design for risk prevention for identity
+
+        Design a risk assessment strategy (access review, RBAC, policies, physical access, etc.,)
+        Evaluate agreements involving services or products from vendors and contractors
+        update solution design documentation to address and mitigate changes to existing security policies, standards, guidelines and procedures 
+      
+        Risk management and risk prevention can be find in the activity logs in each resource groupId1
+
+        Activity Log: performed by a user or a subscription etc., when and where the action was taken user who initated the action 
+
+    Design a monitoring strategy for identity and security
+
+        Design for alert notifications
+        Design an alert and metrics strategy
+        Recommend authentication monitors 
+
+            activity directory: Identity side 
+                Audit logs
+                logs
+                provisioing logs
+                Diagnostic diagnosticSettings
+            Azure Monitor: we can configure the Alerts and Metrics where we can configure different serivces 
+
+Section3:    Design a Monitoring strategy for the data platform
+
+                    Design for alert notification
+                    Design an alert and metics strategy
