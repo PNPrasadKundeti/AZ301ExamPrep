@@ -147,6 +147,178 @@ Privileged Identity Management (PIM) contains mostly 3 sections, PIM is a premiu
             Azure Monitor: we can configure the Alerts and Metrics where we can configure different serivces 
 
 Section3:    Design a Monitoring strategy for the data platform
+Objectives:
+Design for alert notification
+Design an alert and metics strategy
+Design a Data Protection strategy
+Design and Document Data flows
+Design a Data Platform Solution
 
                     Design for alert notification
+                    
+            using Azure Monitor Alerts we can define certain threshold and define the action group and different type triggered mechanism Automation Runbook, Azure functions, Email Azure Resource Manager Role, Email/SMS/Push/Voice, ITSM, LogicApp, Secure webhook or webhook        
+
                     Design an alert and metics strategy
+
+                     * Choose between managed and unmanaged data storage
+                     * Choose between relational and non-relational databases
+                     * Design data auditing and caching strategies
+                     * Identify data attributes (relevancy,structure, frequency, size, durability etc.,)
+                     * Recommend data transation unit (DTU) sizing
+                     * Design a data retention policy
+                     * Design for data availability, consistency and durability
+                     * Design a data warehouse strategy
+                   Choosing the right storage 
+                     1. Azure Storage blobs   (Object store with flat namespaces)
+                     2. Azure Data Lake Store (Hierarchical file system)
+                     3. Azure Cosmos database  (5 consistency types, secondary indexes etc.,)
+                     4. HBase on HDInsights    (wide colomn store)
+       Design a Data Protection strategy
+          Recommend geographic data storage
+          Design an encryption strategy for data at rest, for data in transmission and for data in use
+          Design a Scalability strategy for data
+          Design secure access to data
+          Design a data loss prevention (DLP) policy
+      
+      There are difference between data replication and data protection
+         Enable Geo-replication (RA-GRS), region pairs data is copied (H/w failures, data center loss)
+         Data redudancy and replication 
+
+      Design and Document Data flows
+
+         Identify data flow requirements
+         Create a data flow diagram
+         Design a data flow to meet business requirements
+         Design a data import and export strategy                
+
+       Storage Account --> Data Transfer --> AzCopy, AzurePowerShell, AzureCli, Azure Data Factory (hybrid data integration with entrprise security), Azure Storage Explorer,  Azure Storage REST API/SDK, Azure Data Box Edge (on-premise physical device, local copy on-prem) and Azure Data Box Gateway (on-prem virtual n/w devices in your hypervisor, SMB/NFS)  
+
+       Design a Data Platform Solution
+
+       Design a data managment strategy
+       Design a data protection strategy
+       Design and Document data flows
+       Design a monitoring strategy for the data platform
+
+Section 4: Design a Business Continuity Strategy
+
+Objectives:
+Design a site recovery strategy
+Design a high availability
+Design a data archiving strategy
+
+Design a site recovery strategy
+  *Recovery solution
+  *Site recovery replication policy
+  *Site recovery capacity and for storage replication
+  *Site failover and failback(planned/unplanned)
+  *Site recovery network
+  *Recommend recovery objectives
+  *Identify resources that require site recovery
+  *Identiy supported and unsupported workloads 
+
+geographical distribution strategy for a recovery
+
+Recovery Services Vaults (Backup Goals Azure, Azure Stack, On-prem -->Define Backup Policy (RTO,RPO etc.,))
+Enable replication select the source (Azure/on-prem)
+
+Design for High Availability
+  *Design for application redudancy
+  *Autoscaling
+  *Data center
+  *Fault-domain redudancy
+  *Network Redudancy
+  *Identify resources that require high availability
+  *Identify storage types for high availability
+
+  Active region and standby region (enable geo-replication ) use CDN/Front Door services
+
+
+  Design a data archiving strategy 
+       Recommend storage types and methodology for data archiving
+       Identify requirements for data archiving and business compliance requirements for data archiving
+       Identify SLA's for data archving 
+
+  Premium performance vs hottier vs cold tier vs archive tier 
+
+  Trust Center which gives different compliance offerings (Global,Government, Idustry and Regional)    
+
+
+ Section 5:  Design for deployment migration and integration
+
+Objectives:
+ Design deployments
+ Design migrations
+ Design an API integration strategy
+
+Design deployments
+  Design a compute, container, data platform, messaging solution, storage, webapp and service deployment strategy
+
+Design migrations
+  Recommend a migration strategy
+  Design data import/export strategies during migration
+  Determine the appropriate applicaiton migration, data transfer and network conenctivity methodology
+  Determine migration scope, including redundant, related, trivial and outdated data
+  Determine application and data compatibility
+
+recovery services vault --> Replicate --> Source as on-prem other option is Azure migrate
+
+Azure migrate --> Access and migrate servers, Access and migrate databases, Access and migrate webapps/order a databox
+
+Design an API integration strategy
+
+    Design an API gateway strategy
+    Determine policies for internal and external Consumption of API
+    Recommend a hosting structure for API management
+
+Section6: Design an infrastructure strategy
+
+Objectives:
+    Design a storage strategy
+    Design a compute strategy
+    Design a networking strategy
+    Design a monitoring strategy for infrastructure
+
+Design a storage strategy
+
+    Design a storage provisioing strategy
+    Design storage access strategy
+    Identify Storage requirements
+    Recommend a strage solution and storage managment tools
+
+    pick the right type of storage of the job,
+
+    Consider way storage interacts with Azure services
+
+    Data sources --> Data Storage                   BatchProcessing             Analytical          Analytical
+                     Realtime Message Ingestion     Stream BatchProcessing      Data store              and 
+                                                                                                    Reporting
+
+All the storage types within Azure
+How the Storage types interact with each other
+the other components you can build on top
+Identify the Right features to use
+
+
+Design a compute strategy (which azure services to choose VS vs functions vs service fabric vs container inst)
+*Design compute provisioing and secure compute strategies
+*Determine appropriate compute technologies (VM's. functions, service fabric, container instances)
+*Design an azure HPC environment (H or A series, Available SKU's)
+*Identify compute requirements
+*Recommend managment tools for compute
+
+
+Design a Networking Strategy
+*Design network provisioning and network security strategies
+*Determine appropriate network conenctivity technologies
+*Identify networking requirements
+*Recommend network management tools
+
+
+OnPrem Network --> Gateway subnet (VPN/ExpressRoute) -->private/public DMZ--> web tier --> Business tier --> data tier 
+
+Design a Monitoring Strategy for infrastructure
+   * Design for alert notification
+   * Design an alert and metrics strategy
+
+   Alerts and Metics : part of Azure Monitor
