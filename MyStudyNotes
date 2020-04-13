@@ -1,0 +1,51 @@
+Identifying the requirements to technologies:
+How to identify the requirements for Storage, Networking, Compute
+Use Cases   Business Drivers, understand the goals of business and application teams, use to formulate specific requirements 
+Assumptions  must use existing tools
+Critical Success factors  try to align to specific business outcomes, your goal of the projects
+
+Business Needs
+Define Business Objective: is 24*7, RTO/RPO
+Document SLAs: 99.9%, 99.5 % 
+Functional and Non Functional requirements 
+Decompose by workloads: 
+Plan for Growth: what is current user and what will grow downstream
+Manage Costs: ensure you account for all costs in the solution as well as shared cost increases this is a constant requirement to keep throughout the project
+
+Azure Architecture Center: Design Patterns, Reference Architecture and Data Architecture guide (RDBS, BigData architecture, cross-cutting concers, extend ARM templets, multiple identities, migrate cloud services to service fabric, monitor Azure databricks, Cloud Adaption Frameworks, design review framework
+Shared Responsinsiblity Model 
+OnPrem vs IaaS vs PaaS vs Saas (Physical security, Host Infra, Network controls, Application level controls, Identity & access management, client & end-point protection, data classification & accountability [ IaaS > PaaS > SaaS ]
+Following are your responsible for following items
+Data , EndPoints, Account and Access Management (MFA, Azure AD)
+Microsoft Trust Center : Whitepapers, FedRAMP, ISO, SOC audit reports, data protection, security assessment 
+Compliance Manger: is where you manage all your compliances from a central location, proactive risk assessments, prepare compliance reports for audits and reports 
+Data Protection Resources: audited controls, compliance guides, FAQ and Whitepapers, GRC assessment reports, Pen Test and Security Assessments 
+BluePrints: security blueprints, PCI DSS requirements description, Government Blue Prints 
+General SLA Practices: 1. Define SLA’s for each workloads 2. Dependency Mapping
+ 3. Identify single points of failure: work load requirements 99.99%
+Key Terms: MTTR (Mean time to recovery) MTBF(Mean Time Between Failures) RPO (how fast we can recover) and RTO (loss of data)   
+"Availability Set" refers to two or more Virtual Machines deployed across different Fault Domains to avoid a single point of failure.
+
+"Availability Zone” is a fault-isolated area within an Azure region, providing redundant power, cooling, and networking.
+
+"Azure Dedicated Host" provides physical servers that host one or more Azure virtual machines with the (default) setting of autoReplaceOnFailure required for any SLA.
+
+"Data Disk" is a persistent virtual hard disk, attached to a Virtual Machine, used to store application data.
+
+"Dedicated Host Group" is a collection of Azure Dedicated Hosts deployed within an Azure region across different Fault Domains to avoid a single point of failure.
+
+"Fault Domain" is a collection of servers that share common resources such as power and network connectivity.
+
+"Operating System Disk" is a persistent virtual hard disk, attached to a Virtual Machine, used to store the Virtual Machine’s operating system.
+
+"Single Instance" is defined as any single Microsoft Azure Virtual Machine that either is not deployed in an Availability Set or has only one instance deployed in an Availability Set.
+
+"Virtual Machine" refers to persistent instance types that can be deployed individually, as part of an Availability Set or using a Dedicated Host Group. A virtual machine can be deployed in a multi-tenant environment in Azure or in an isolated, single-tenant environment using Azure Dedicated Hosts.
+
+"Virtual Machine Connectivity" is bi-directional network traffic between the Virtual Machine and other IP addresses using TCP or UDP network protocols in which the Virtual Machine is configured for allowed traffic. The IP addresses can be IP addresses in the same Cloud Service as the Virtual Machine, IP addresses within the same virtual network as the Virtual Machine or public, routable IP addresses.
+ 
+
+ 
+
+
+
